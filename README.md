@@ -218,3 +218,29 @@ Prebid.js is supported on IE10+ and modern browsers.
 
 ### Governance
 Review our governance model [here](https://github.com/prebid/Prebid.js/tree/master/governance.md).
+
+
+---
+
+## FOR BOLT
+
+Before build:
+1. Add required adapters to `modules.json`. Because we currently only work with Appnexus & Rubicon ( Amazon doesn't use Prebid.js ), we only list Rubicon and Appnexus adapters in `modules.json`.
+2. In `package.json`, make sure `globalVarName = '__pwhb__'`
+3. Run command below where `{VERSION}` is a simple version number:
+
+```
+gulp build --modules=modules.json --bundleName=__pwhb__{VERSION}.js
+```
+
+Example:
+```
+gulp build --modules=modules.json --bundleName=__pwhb__2.js
+```
+
+After build:
+1. Upload `dist/__pwhb__{VERSION}.js` to `//cdn.playwire.com/bolt/js/`
+```
+s3cmd -c ~/.s3cfg-playwire put dist/__pwhb__2.js s3://playwire.videos/bolt/js/
+```
+2. Make sure Bolt is using the new file

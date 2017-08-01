@@ -180,6 +180,9 @@ exports.registerBidAdapter = function (bidAdaptor, bidderCode, {supportedMediaTy
 
       if (supportedMediaTypes.includes('video')) {
         exports.videoAdapters.push(bidderCode);
+        utils.logInfo('[PrebidJS] VIDEO adapter registered code:'+ bidderCode);
+      }else{
+        utils.logWarn('[PrebidJS] Non-video adapter found code:'+ bidderCode);
       }
       if (supportedMediaTypes.includes('native')) {
         nativeAdapters.push(bidderCode);

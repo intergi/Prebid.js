@@ -177,7 +177,7 @@ exports.registerBidAdapter = function (bidAdaptor, bidderCode, {supportedMediaTy
   if (bidAdaptor && bidderCode) {
     if (typeof bidAdaptor.callBids === CONSTANTS.objectType_function) {
       _bidderRegistry[bidderCode] = bidAdaptor;
-
+      utils.logInfo('[PrebidJS] registering code: '+bidderCode+' mediaTypes:'+supportedMediaTypes)
       if (supportedMediaTypes.includes('video')) {
         exports.videoAdapters.push(bidderCode);
         utils.logInfo('[PrebidJS] VIDEO adapter registered code:'+ bidderCode);

@@ -523,10 +523,10 @@ $$PREBID_GLOBAL$$.removeCallback = function (/* cbId */) {
  * @param  {[type]} bidderCode    [description]
  * @return {[type]}               [description]
  */
-$$PREBID_GLOBAL$$.registerBidAdapter = function (bidderAdaptor, bidderCode) {
+$$PREBID_GLOBAL$$.registerBidAdapter = function (bidderAdaptor, bidderCode,{supportedMediaTypes = []} = {}) {
   utils.logInfo('Invoking $$PREBID_GLOBAL$$.registerBidAdapter', arguments);
   try {
-    adaptermanager.registerBidAdapter(bidderAdaptor(), bidderCode);
+    adaptermanager.registerBidAdapter(bidderAdaptor(), bidderCode, arguments[2]);
   }
   catch (e) {
     utils.logError('Error registering bidder adapter : ' + e.message);

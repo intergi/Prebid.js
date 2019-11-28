@@ -10,5 +10,6 @@
   "telariaBidAdapter",
   "beachfrontBidAdapter",
   "emx_digitalBidAdapter",
-  "spotxBidAdapter"
+  "spotxBidAdapter",
+  "pubmaticBidAdapter"
 ]
